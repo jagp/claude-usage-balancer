@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "ms-vscode.powershell",
+    "editorconfig.editorconfig",
+    "streetsidesoftware.code-spell-checker",
+    "github.vscode-github-actions"
+  ]
+}

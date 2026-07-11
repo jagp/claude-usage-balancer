@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+# Reusable pre-commit gate. Copy into a project's .githooks/ and enable per-clone:
+#   git config core.hooksPath .githooks
+#
+# Customize the lint/test commands per project stack. The PowerShell defaults below
+# match a project using PSScriptAnalyzer + Pester.
+set -eu
+
+ps=powershell
+if command -v pwsh >/dev/null 2>&1; then ps=pwsh; fi
+
+if [ -f ./PSScriptAnalyzerSettings.psd1 ]; then
+  echo "[pre-commit] PSScriptAnalyzer..."
+  "$ps" -NoProfile -NonInteractive -Command "\$i = @(); foreach (\$p in 'src','tests') { if (Test-Path \$p) { \$i += Invoke-ScriptAnalyzer -Path \$p -Recurse -Settings ./PSScriptAnalyzerSettings.psd1 } }; if (\$i) { \$i | Format-Table -AutoSize | Out-String | Write-Host; exit 1 }"
+fi
+
+if [ -d ./tests ]; then
+  echo "[pre-commit] Pester..."
+  "$ps" -NoProfile -NonInteractive -Command "Import-Module Pester -MinimumVersion 5.0 -Force; \$r = Invoke-Pester -Path ./tests -PassThru; if (\$r.FailedCount -gt 0) { exit 1 }"
+fi
+
+echo "[pre-commit] OK"

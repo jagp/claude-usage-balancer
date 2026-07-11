@@ -1,0 +1,24 @@
+# Global ignore for things that should NEVER be committed in ANY repo.
+# Wire it up once (machine-local):
+#   git config --global core.excludesFile "<path-to-this-file>"
+
+# Tier-1 local config
+.env
+.env.*.local
+*.local.json
+.claude/settings.local.json
+
+# Secrets
+*.key
+*.pfx
+*.pem
+secrets.*
+
+# OS / editor cruft
+Thumbs.db
+desktop.ini
+.DS_Store
+*~
+*.swp
+.idea/
+*.code-workspace

@@ -1,0 +1,10 @@
+{
+  "//": "Baseline SHARED workspace settings to copy into a project's .vscode/settings.json. Personal overrides go in your User settings, not here.",
+  "files.encoding": "utf8",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "editor.formatOnSave": true,
+  "editor.rulers": [100],
+  "cSpell.enableFiletypes": ["markdown", "plaintext"],
+  "cSpell.checkOnlyEnabledFileTypes": true
+}
