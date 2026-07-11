@@ -22,3 +22,9 @@ desktop.ini
 *.swp
 .idea/
 *.code-workspace
+
+# --- dev-strap ---
+omnilog.md.historic
+# ado task board is git-ignored working state (regenerable, not a tracked artifact)
+*.ado
+.claude/task.ado
