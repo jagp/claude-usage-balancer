@@ -55,5 +55,3 @@ Rule of thumb: *personal* -> tier 1, *this-project-specific* -> tier 2,
   by the dev-strap hooks in `.claude/hooks/` (descriptions only — never command
   text or file contents; ASCII, <=78 chars). It's an append-only ledger; don't
   edit or backfill it.
-- The user has an ergonomic typing need: silently interpret typos from intent;
-  do not interrupt their flow to confirm spelling.
